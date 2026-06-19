@@ -26,8 +26,8 @@ public class CodeValueServiceImpl implements CodeValueService {
 
     // 특정 그룹의 코드값 목록 조회
     @Override
-    public List<CodeValueVO> getCodeValueListByGroup(String userId, String groupName) {
-        return codeValueMapper.selectCodeValueListByGroup(userId, groupName);
+    public List<CodeValueVO> getCodeValueListByGroup(String userId, String settingGroupName) {
+        return codeValueMapper.selectCodeValueListByGroup(userId, settingGroupName);
     }
 
     // 코드값 상세 조회
@@ -43,7 +43,7 @@ public class CodeValueServiceImpl implements CodeValueService {
 
         int duplicateCount = codeValueMapper.countDuplicateSettingName(
                 codeValue.getUserId(),
-                codeValue.getSetingGroupName(),
+                codeValue.getSettingGroupName(),
                 codeValue.getSettingName()
         );
 
@@ -54,7 +54,7 @@ public class CodeValueServiceImpl implements CodeValueService {
         if ("Y".equals(codeValue.getDefaultYn())) {
             int defaultCount = codeValueMapper.countDefaultCodeValue(
                     codeValue.getUserId(),
-                    codeValue.getSetingGroupName()
+                    codeValue.getSettingGroupName()
             );
 
             if (defaultCount > 0) {
@@ -73,7 +73,7 @@ public class CodeValueServiceImpl implements CodeValueService {
         if ("Y".equals(codeValue.getDefaultYn())) {
             int defaultCount = codeValueMapper.countDefaultCodeValue(
                     codeValue.getUserId(),
-                    codeValue.getSetingGroupName()
+                    codeValue.getSettingGroupName()
             );
 
             if (defaultCount > 0) {

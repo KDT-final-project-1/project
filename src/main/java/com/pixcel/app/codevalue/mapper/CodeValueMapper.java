@@ -11,60 +11,18 @@ import com.pixcel.app.codevalue.service.CodeValueVO;
 
 public interface CodeValueMapper {
 
-    /**
-     * 특정 사용자의 코드값 전체 목록을 조회한다.
-     *
-     * 예:
-     * userId = "admin"이면
-     * admin 사용자가 가진 모든 코드값 목록을 조회한다.
-     *
-     * List<CodeValueVO> 의미:
-     * - DB 조회 결과가 여러 줄일 수 있으므로 List 사용
-     * - 조회된 row 하나가 CodeValueVO 객체 하나가 된다.
-     *
-     * @param userId 사용자 ID
-     * @return 코드값 목록
-     */
+    /* 특정 사용자의 코드값 전체 목록을 조회한다.*/
     List<CodeValueVO> selectCodeValueList(@Param("userId") String userId);
 
 
-    /**
-     * 특정 사용자 + 특정 그룹의 코드값 목록을 조회한다.
-     *
-     * 예:
-     * userId = "admin"
-     * groupName = "일감 우선순위"
-     *
-     * 그러면 admin 사용자의 "일감 우선순위" 코드값만 조회한다.
-     *
-     * @Param을 쓰는 이유:
-     * - 파라미터가 2개 이상이면 XML에서 이름을 명확히 쓰기 위해 필요하다.
-     * - XML에서 #{userId}, #{groupName}으로 사용 가능하다.
-     *
-     * @param userId 사용자 ID
-     * @param groupName 코드 그룹명
-     * @return 특정 그룹의 코드값 목록
-     */
+    /* 특정 사용자 + 특정 그룹의 코드값 목록을 조회한다. */
     List<CodeValueVO> selectCodeValueListByGroup(
             @Param("userId") String userId,
-            @Param("groupName") String groupName
+            @Param("settingGroupName") String settingGroupName
     );
 
 
-    /**
-     * 코드값 ID로 코드값 상세 정보를 1개 조회한다.
-     *
-     * settingCodeId는 PK라고 가정한다.
-     * 그래서 결과는 여러 개가 아니라 CodeValueVO 1개다.
-     *
-     * 사용 위치:
-     * - 수정 화면 진입
-     * - 삭제 확인 팝업
-     * - 기본값 삭제 전 정보 확인
-     *
-     * @param settingCodeId 코드값 ID
-     * @return 코드값 상세 정보
-     */
+    /* 코드값 ID로 코드값 상세 정보를 1개 조회한다.  */
     CodeValueVO selectCodeValueDetail(@Param("settingCodeId") Integer settingCodeId);
 
 
@@ -112,7 +70,7 @@ public interface CodeValueMapper {
     
     int countDefaultCodeValue(
             @Param("userId") String userId,
-            @Param("groupName") String groupName
+            @Param("settingGroupName") String settingGroupName
     );
 
 
@@ -133,7 +91,7 @@ public interface CodeValueMapper {
      */
     int countDuplicateSettingName(
             @Param("userId") String userId,
-            @Param("groupName") String groupName,
+            @Param("settingGroupName") String settingGroupName,
             @Param("settingName") String settingName
     );
 }

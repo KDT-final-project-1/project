@@ -8,7 +8,7 @@ public interface CodeValueService {
     List<CodeValueVO> getCodeValueList(String userId);
 
     // 특정 그룹의 코드값 목록 조회
-    List<CodeValueVO> getCodeValueListByGroup(String userId, String groupName);
+    List<CodeValueVO> getCodeValueListByGroup(String userId, String settingGroupName);
 
     // 코드값 상세 조회
     CodeValueVO getCodeValueDetail(Integer settingCodeId);

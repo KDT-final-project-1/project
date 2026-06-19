@@ -15,7 +15,7 @@ import lombok.ToString;
 @ToString
 public class CodeValueVO {
 	private Integer settingCodeId;
-	private String setingGroupName;
+	private String settingGroupName;
 	private String settingName;
 	private String defaultYn;
 	private String useYn;

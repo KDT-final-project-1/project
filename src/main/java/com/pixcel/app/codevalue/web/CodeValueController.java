@@ -4,7 +4,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.pixcel.app.codevalue.service.CodeValueService;
@@ -16,33 +15,35 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 //@RequestMapping("/code-values")
 public class CodeValueController {
+	
+	private static final String TEST_USER_ID = "users_0001";
 
     private final CodeValueService codeValueService;
 
     // 코드값 목록 화면
-    @GetMapping
-    public String list(@RequestParam String userId, Model model) {
-        model.addAttribute("codeValueList", codeValueService.getCodeValueList(userId));
-        return "codeValue/list";
+    @GetMapping("/code-values")
+    public String list(Model model) {
+        model.addAttribute("codeValueList", codeValueService.getCodeValueList(TEST_USER_ID));
+        return "codevalue/list";
     }
 
     // 특정 그룹의 코드값 목록 화면
     @GetMapping("/code-values/group")
     public String listByGroup(
             @RequestParam String userId,
-            @RequestParam String groupName,
+            @RequestParam String settingGroupName,
             Model model
     ) {
-        model.addAttribute("codeValueList", codeValueService.getCodeValueListByGroup(userId, groupName));
-        model.addAttribute("groupName", groupName);
-        return "codeValue/list";
+        model.addAttribute("codeValueList", codeValueService.getCodeValueListByGroup(userId, settingGroupName));
+        model.addAttribute("settingGroupName", settingGroupName);
+        return "codevalue/list";
     }
 
     // 코드값 등록 화면
     @GetMapping("/code-values/new")
     public String createForm(Model model) {
         model.addAttribute("codeValue", new CodeValueVO());
-        return "codeValue/form";
+        return "codevalue/form";
     }
 
     // 코드값 등록 처리
@@ -56,7 +57,7 @@ public class CodeValueController {
     @GetMapping("/code-values/edit")
     public String editForm(@RequestParam Integer settingCodeId, Model model) {
         model.addAttribute("codeValue", codeValueService.getCodeValueDetail(settingCodeId));
-        return "codeValue/form";
+        return "codevalue/form";
     }
 
     // 코드값 수정 처리
