@@ -3,6 +3,8 @@ package com.pixcel.app.project.service;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,7 +22,9 @@ public class ProjectVO {
 	private String description;			// 설명
 	private String projectUrl;			// 프로젝트 URL
 	private String statusCode;			// 공통코드(상태)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date startDate;				// 시작일
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date endDate;				// 완료일
 	private Date createdAt;				// 등록일자
 	private String gitUrl;				// github URL
