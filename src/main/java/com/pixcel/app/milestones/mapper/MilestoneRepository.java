@@ -1,16 +1,16 @@
-//package com.pixcel.app.milestone.mapper;
-//
+package com.pixcel.app.milestones.mapper;
+
 //import org.springframework.data.jpa.repository.JpaRepository;
 //import org.springframework.stereotype.Repository;
 //
-//import com.pixcel.app.milestone.service.MilestoneVO;
-//
-///**
-// * 마일스톤 엔티티를 관리하는 JPA 레포지토리 인터페이스입니다.
-// * JpaRepository<엔티티타입, PK타입>을 상속받습니다.
-// * Milestone: 우리가 만든 엔티티
-// * String: PK인 milestoneId의 데이터 타입
-// */
+//import com.pixcel.app.milestones.service.MilestoneVO;
+
+/**
+ * 마일스톤 엔티티를 관리하는 JPA 레포지토리 인터페이스입니다.
+ * JpaRepository<엔티티타입, PK타입>을 상속받습니다.
+ * Milestone: 우리가 만든 엔티티
+ * String: PK인 milestoneId의 데이터 타입
+ */
 //@Repository
 //public interface MilestoneRepository extends JpaRepository<MilestoneVO, String> {
 //
