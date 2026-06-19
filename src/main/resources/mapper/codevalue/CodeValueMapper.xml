@@ -14,7 +14,7 @@
         use_yn,
         user_id
     FROM setting_code
-    WHERE user_id = #{userId}
+    WHERE user_id = #{userId}   
     ORDER BY setting_group_name, setting_code_id
 </select>
 

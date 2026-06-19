@@ -25,6 +25,8 @@ public class CodeValueController {
     public String list(Model model) {
         model.addAttribute("codeValueList", codeValueService.getCodeValueList(TEST_USER_ID));
         return "codevalue/list";
+        
+        
     }
 
     // 특정 그룹의 코드값 목록 화면

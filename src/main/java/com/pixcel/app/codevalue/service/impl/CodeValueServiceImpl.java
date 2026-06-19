@@ -67,7 +67,7 @@ public class CodeValueServiceImpl implements CodeValueService {
 
     // 코드값 수정
     @Override
-    @Transactional
+    @Transactional  
     public void modifyCodeValue(CodeValueVO codeValue) {
 
         if ("Y".equals(codeValue.getDefaultYn())) {
