@@ -1,4 +1,4 @@
-package com.pixcel.app.milestone.service;
+package com.pixcel.app.milestones.service;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

@@ -1,4 +1,4 @@
-package com.pixcel.app.milestone.service.impl;
+package com.pixcel.app.milestones.service.impl;
 
 import org.springframework.stereotype.Service;
 
