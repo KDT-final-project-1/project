@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>코드값 목록</title>
+</head>
+<body>
+
+<h2>코드값 목록</h2>
+
+<a th:href="@{/code-values/new}">새 코드값 생성</a>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>그룹명</th>
+        <th>코드값명</th>
+        <th>기본값</th>
+        <th>사용여부</th>
+        <th>관리</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each="code : ${codeValueList}">
+        <td th:text="${code.settingCodeId}">1</td>
+        <td th:text="${code.groupName}">그룹명</td>
+        <td th:text="${code.settingName}">코드값명</td>
+        <td th:text="${code.defaultYn}">Y</td>
+        <td th:text="${code.useYn}">Y</td>
+        <td>
+            <a th:href="@{/code-values/edit(settingCodeId=${code.settingCodeId})}">수정</a>
+
+            <form th:action="@{/code-values/delete}" method="post" style="display:inline;">
+                <input type="hidden" name="settingCodeId" th:value="${code.settingCodeId}">
+                <input type="hidden" name="userId" th:value="${code.userId}">
+                <button type="submit">삭제</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
