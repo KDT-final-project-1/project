@@ -1,4 +1,4 @@
-package com.pixcel.app.milestone.service;
+package com.pixcel.app.milestones.service;
 
 public interface MilestoneService {
  String createMilestone(MilestoneCreateRequestDTO requestDTO); //마일스톤 생성 인터페이스
