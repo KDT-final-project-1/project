@@ -108,17 +108,8 @@ public interface CodeValueMapper {
     int deleteCodeValue(@Param("settingCodeId") Integer settingCodeId);
 
 
-    /**
-     * 같은 사용자 + 같은 그룹 안에 기본값이 이미 있는지 개수를 확인한다.
-     *
-     * 예:
-     * "일감 우선순위" 그룹에 defaultYn = 'Y'인 값이 이미 있으면
-     * 새 코드값 등록 시 기본값 체크를 막을 수 있다.
-     *
-     * @param userId 사용자 ID
-     * @param groupName 코드 그룹명
-     * @return 기본값 개수
-     */
+    /* 같은 사용자 + 같은 그룹 안에 기본값이 이미 있는지 개수를 확인한다.*/
+    
     int countDefaultCodeValue(
             @Param("userId") String userId,
             @Param("groupName") String groupName
