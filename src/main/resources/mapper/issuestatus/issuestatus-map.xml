@@ -41,7 +41,7 @@
                     '0'
                 )
             from issue_status
-            where substr(issue_status_id, 1, 19) =
+            where substr(issue_status_id, 1, 18) =
                   'ISSUE_STATUS_' || to_char(sysdate, 'YYMM') || '_'
         </selectKey>
 
