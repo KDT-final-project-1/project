@@ -9,11 +9,11 @@
 <body>
 	<div class="left-sidebar-pro">
 	<!--sider 영역을 참조합니다.-->
-	<aside th:replace="common/fragments/projectsidebar :: SiderProjectFragment"></aside>
+	<aside th:replace="~{common/fragments/projectsidebar :: SiderProjectFragment}"></aside>
 	</div>
 	<div class="all-content-wrapper">
 	<!--Header 영역을 참조합니다.-->
-		<header th:replace="common/fragments/header :: HeaderFragment"></header>
+		<header th:replace="~{common/fragments/header :: HeaderFragment}"></header>
         <main layout:fragment="Content" ></main>
     </div>
     <footer th:replace="~{common/fragments/footer :: FooterFragment}"></footer>
